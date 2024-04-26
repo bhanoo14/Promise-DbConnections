@@ -1,3 +1,39 @@
+const express = require("express")
+const router = require("./routes/index")
+
+
+const port = process.env.PORT || 3000
+const app = express();
+app.set('view engine', 'ejs')
+app.use('/student', router)
+
+app.get('/', (req, res) =>{
+    res.send("Hello World Baba  Bhaanoo is Back wirh full potential")
+    res.render("index.html")
+})
+
+
+app.listen(port, () => {
+    console.log(`Server is running @ ${port}`);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import {MongoClient} from "mongodb";
 
 // const uri = 'mongodb://localhost:27017';
@@ -78,22 +114,22 @@
 //     console.log("Promise one is consumed Here");
 // })
 
-const promiseTwo = new Promise( (resolve, rejected) => {
+// const promiseTwo = new Promise( (resolve, rejected) => {
 
-    setTimeout( () => {
-        console.log("I am promise Two");
-        // resolve({name: "Bhaanoo"})
-        rejected("Promise Is rejected")
-     }, 3000)
-})
+//     setTimeout( () => {
+//         console.log("I am promise Two");
+//         // resolve({name: "Bhaanoo"})
+//         rejected("Promise Is rejected")
+//      }, 3000)
+// })
 
-async function consumingPromiseTwo(){
-    try {
-        const respone  = await promiseTwo;
-        console.log(respone);        
-    } catch (error) {
-        console.log("Something Went wrong", error);
-    }
-}
+// async function consumingPromiseTwo(){
+//     try {
+//         const respone  = await promiseTwo;
+//         console.log(respone);        
+//     } catch (error) {
+//         console.log("Something Went wrong", error);
+//     }
+// }
 
-consumingPromiseTwo()
+// consumingPromiseTwo()
